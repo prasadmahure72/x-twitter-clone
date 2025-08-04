@@ -18,18 +18,18 @@ const Post = async ({type}: { type?: "status" | "comment" }) => {
 
     // FETCH POST MEDIA
 
-    const getFileDetails = async (
-        fileId: string
-    ): Promise<FileDetailsResponse> => {
-        return new Promise((resolve, reject) => {
-            imagekit.getFileDetails(fileId, function (error, result) {
-                if (error) reject(error);
-                else resolve(result as FileDetailsResponse);
-            });
-        });
-    };
-
-    const fileDetails = await getFileDetails("688f7e475c7cd75eb81ae395");
+    // const getFileDetails = async (
+    //     fileId: string
+    // ): Promise<FileDetailsResponse> => {
+    //     return new Promise((resolve, reject) => {
+    //         imagekit.getFileDetails(fileId, function (error, result) {
+    //             if (error) reject(error);
+    //             else resolve(result as FileDetailsResponse);
+    //         });
+    //     });
+    // };
+    //
+    // const fileDetails = await getFileDetails("688f7e475c7cd75eb81ae395");
 
     // console.log(fileDetails);
 
@@ -101,25 +101,26 @@ const Post = async ({type}: { type?: "status" | "comment" }) => {
                             iure nam voluptas soluta pariatur inventore.
                         </p>
                     </Link>
-                    {/*<Image path="general/post.jpeg" className="border-[0.5px] border-textGray rounded-xl" alt="" w={600} h={400} />*/}
+                    <Image path="general/post.png" className="border-[0.5px] border-textGray rounded-xl" alt="" w={600}
+                           h={400}/>
                     {/* AFTER FETCHING THE POST-MEDIA */}
-                    {fileDetails && fileDetails.fileType === "image" ? (
-                        <Image
-                            path={fileDetails.filePath}
-                            alt=""
-                            w={fileDetails.width}
-                            h={fileDetails.height}
-                            className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
-                        />
-                    ) : (
-                        <Video
-                            path={fileDetails.filePath}
-                            className={`border-[0.5px] border-textGray rounded-xl ${fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}`}
-                        />
-                    )}
-                    {type === "status" && (
-                        <span className="text-textGray">8:41 PM · Dec 5, 2024</span>
-                    )}
+                    {/*{fileDetails && fileDetails.fileType === "image" ? (*/}
+                    {/*    <Image*/}
+                    {/*        path={fileDetails.filePath}*/}
+                    {/*        alt=""*/}
+                    {/*        w={fileDetails.width}*/}
+                    {/*        h={fileDetails.height}*/}
+                    {/*        className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}*/}
+                    {/*    />*/}
+                    {/*) : (*/}
+                    {/*    <Video*/}
+                    {/*        path={fileDetails.filePath}*/}
+                    {/*        className={`border-[0.5px] border-textGray rounded-xl ${fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}`}*/}
+                    {/*    />*/}
+                    {/*)}*/}
+                    {/*{type === "status" && (*/}
+                    {/*    <span className="text-textGray">8:41 PM · Dec 5, 2024</span>*/}
+                    {/*)}*/}
                     <PostInteractions/>
                 </div>
             </div>

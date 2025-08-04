@@ -18,7 +18,7 @@ const UserPage = () => {
         <div className="relative w-full">
           {/* COVER */}
           <div className="w-full aspect-[3/1] relative">
-            <Image path="general/cover.jpg" alt="" w={600} h={200} tr={true} />
+            <Image path="general/cover.jpeg" alt="" w={600} h={200} tr={true} />
           </div>
           {/* AVATAR */}
           <div className="w-1/5 aspect-square rounded-full overflow-hidden border-4 border-black bg-gray-300 absolute left-4 -translate-y-1/2">
